@@ -6,7 +6,7 @@ public class prodFib{
         //productFib(714) # should return (21, 34, true), 
         // # since F(8) = 21, F(9) = 34 and 714 = 21 * 34
 
-        long[] test = productFib(714);
+        long[] test = productFib(4895);
         for (long l : test){
             System.out.println(l);
         }
@@ -14,7 +14,7 @@ public class prodFib{
         // productFib(800) # should return (34, 55, false), 
         // # since F(8) = 21, F(9) = 34, F(10) = 55 and 21 * 34 < 800 < 34 * 55
         
-        test = productFib(800);
+        test = bestProductFib(5895);
         for (long l : test){
             System.out.println(l);
         }
@@ -23,13 +23,10 @@ public class prodFib{
     public static long[] productFib(long prod) {
         // your code
         long first = 0; long second = 1;
-        long result = 0;
-        boolean found = false;
-        while (!found) {
-            result = first * second;
-            if (result == prod) {
+        while (true) {
+            if (first * second == prod) {
                 return new long[] {first, second, 1};
-            } else if (result > prod) {
+            } else if (first * second > prod) {
                 return new long[] {first, second, 0};
             } else {
                 long tmp = first + second;
@@ -37,6 +34,16 @@ public class prodFib{
                 second = tmp;
             }
         }
-        return null;
+    }
+
+    public static long[] bestProductFib(long prod) {
+        long a = 0L;
+        long b = 1L;
+        while (a * b < prod) {
+          long tmp = a;
+          a = b;
+          b = tmp + b;
+        }
+        return new long[] { a, b, a * b == prod ? 1 : 0 };
        }
 }
