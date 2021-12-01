@@ -11,6 +11,14 @@ public class Main {
         // user.incProgress(5);
 
         user.incProgress(1);
+        user.incProgress(1);
+        user.incProgress(1);
+        user.incProgress(1);
+        user.incProgress(1);
+        user.incProgress(2);
+        user.incProgress(2);
+        user.incProgress(-1);
         System.out.println("rank " + user.rank());
+        System.out.println("progress " + user.progress());
     }
 }
