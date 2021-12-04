@@ -1,12 +1,7 @@
-import java.util.stream.IntStream;
-
-import javax.swing.Action;
-
 public class User {
 
-    private int rank = -8;
-    private int progress = 0;
-    private int[] ranks = new int[] {-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8};
+    public int rank = -8;
+    public int progress = 0;
     
     public int rank(){
         return rank;
@@ -20,6 +15,9 @@ public class User {
         } else {
             rank += 2;
         }
+        if (rank() == 8){
+            progress = 0;
+        }
     }
 
     public int progress() {
@@ -28,6 +26,9 @@ public class User {
 
     public void setProgress(int newProgress){
         System.out.println(newProgress);
+        if (rank() == 8){
+            return;
+        }
         if ((progress() + newProgress) >= 100){
             int newLvl = (progress() + newProgress) / 100;
             progress = progress() + newProgress - (newLvl*100);
