@@ -1,3 +1,4 @@
+package CodewarsStyleRankingSystem;
 public class User {
 
     public int rank = -8;

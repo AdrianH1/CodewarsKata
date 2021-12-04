@@ -1,10 +1,11 @@
+package CodewarsStyleRankingSystem;
 public class Main {
     public static void main(String[] args) {
         User user = new User();
 
+        user.incProgress(1); // 40
+        user.incProgress(1); // 40
         user.incProgress(1); //640
-        user.incProgress(1); // 40
-        user.incProgress(1); // 40
         user.incProgress(1); // 10 
         user.incProgress(1); // 10
         user.incProgress(2); // 40
@@ -26,4 +27,5 @@ public class Main {
         System.out.println("rank " + user.rank());
         System.out.println("progress " + user.progress());
     }
+
 }
