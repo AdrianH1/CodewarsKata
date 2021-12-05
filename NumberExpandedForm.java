@@ -1,5 +1,7 @@
 public class NumberExpandedForm {
     public static void main(String[] args) {
+        int j = 9000000%10;
+
         System.out.println(expandedForm(12)); //10 + 2
         System.out.println(expandedForm(42)); //40 + 2
         System.out.println(expandedForm(70304)); //70000 + 300 + 4
@@ -49,5 +51,22 @@ public class NumberExpandedForm {
         outs = num + outs;
         
         return outs;
+    }
+
+    public static String OtherSolutionExpandedForm(int num)
+    {
+      StringBuffer res = new StringBuffer();
+      int d = 1;
+      while(num > 0) {
+        int nextDigit = num % 10;        
+        num /= 10;
+        if (nextDigit > 0) {
+          res.insert(0, d * nextDigit);
+          res.insert(0, " + ");
+        }
+        d *= 10;
+      }
+      
+      return res.substring(3).toString();
     }
 }
